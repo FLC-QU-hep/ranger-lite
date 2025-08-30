@@ -62,7 +62,7 @@ class RangerLite(RAdam):
                     state["cached_params"] = torch.clone(parameter.data.detach())
         return has_complex
 
-    def step(self, closure: Callable[[], float] | None = None) -> float | None:
+    def step(self, closure: Callable[[], Tensor] | None = None) -> Tensor | None:
         loss = super().step(closure)
         for group in self.param_groups:
             for parameter in group["params"]:
