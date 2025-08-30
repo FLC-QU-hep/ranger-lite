@@ -1,0 +1,34 @@
+[project]
+name = "rangerlite"
+version = "0.1.0"
+readme = "README.md"
+license = "MIT"
+description = "A pytorch implementation of the Lookahead optimizer with RAdam as inner optimizer"
+authors = [
+    {name = "Thorsten Buss", email = "thorsten.buss@uni-hamburg.de"}
+]
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=2.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff==0.12.11",
+    "pre-commit==4.3.0"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["rangerlite"]
+
+[tool.ruff]
+target-version = "py310"
+fix = true
+
+[tool.ruff.lint]
+extend-select = ["C4", "I", "SIM", "UP"]
