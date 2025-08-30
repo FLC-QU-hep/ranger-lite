@@ -1,10 +1,16 @@
-from collections.abc import Callable
+from collections.abc import Callable, Iterable
 from typing import Any
 
 import torch
 from torch import Tensor
 from torch.optim import RAdam
-from torch.optim.optimizer import ParamsT
+
+# need to define our own ParamsT to support older versions of pytorch
+ParamsT = (
+    Iterable[torch.Tensor]
+    | Iterable[dict[str, Any]]
+    | Iterable[tuple[str, torch.Tensor]]
+)
 
 
 class RangerLite(RAdam):
