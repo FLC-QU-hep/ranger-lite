@@ -54,5 +54,5 @@ The original Lookahead implementation[4] uses composition of optimizers, which c
 ## References
 1. Ranger: [https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
 2. RAdam: [https://arxiv.org/abs/1908.03265](https://arxiv.org/abs/1908.03265)
-3. Lookahead: [https://arxiv.org/abs/1907.08610](https://arxiv.org/abs/1907.08610v1) 
+3. Lookahead: [https://arxiv.org/abs/1907.08610](https://arxiv.org/abs/1907.08610v1)
 4. Original Lookahead implementation: [https://github.com/michaelrzhang/lookahead](https://github.com/michaelrzhang/lookahead)
