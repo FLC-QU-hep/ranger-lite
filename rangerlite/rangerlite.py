@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from typing import Any, override
+from typing import Any
 
 import torch
 from torch import Tensor
@@ -37,7 +37,6 @@ class RangerLite(RAdam):
         }
         super(RAdam, self).__init__(params, defaults)
 
-    @override
     def _init_group(
         self,
         group: dict[str, Any],
@@ -57,7 +56,6 @@ class RangerLite(RAdam):
                     state["cached_params"] = torch.clone(parameter.data.detach())
         return has_complex
 
-    @override
     def step(self, closure: Callable[[], float] | None = None) -> float | None:
         loss = super().step(closure)
         for group in self.param_groups:
