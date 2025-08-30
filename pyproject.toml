@@ -7,16 +7,16 @@ description = "A pytorch implementation of the Lookahead optimizer with RAdam as
 authors = [
     {name = "Thorsten Buss", email = "thorsten.buss@uni-hamburg.de"}
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.10,<4.0"
 dependencies = [
-    "torch>=2.0.0",
-    "numpy>=2.0.0"
+    "torch>=2.0.0,<3.0.0"
 ]
 
 [project.optional-dependencies]
 dev = [
     "ruff==0.12.11",
-    "pre-commit==4.3.0"
+    "pre-commit==4.3.0",
+    "numpy>=2.0.0,<3.0.0"
 ]
 
 [build-system]
