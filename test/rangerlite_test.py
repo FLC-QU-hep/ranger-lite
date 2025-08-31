@@ -3,7 +3,7 @@ import unittest
 import torch
 from torch import nn
 
-from rangerlite.rangerlite import RangerLite
+from rangerlite import RangerLite
 
 
 class RangerTest(unittest.TestCase):
@@ -82,7 +82,7 @@ class RangerTest(unittest.TestCase):
                 torch.allclose(state_value, loaded_value),
                 msg=f"State mismatch for {state_key}",
             )
-        for param_key, param_value in optimizer2.param_groups[0].items():
+        for param_key, param_value in optimizer.param_groups[0].items():
             loaded_value = optimizer2.param_groups[0][param_key]
             if isinstance(param_value, torch.Tensor):
                 self.assertTrue(
