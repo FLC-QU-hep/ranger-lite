@@ -1,19 +1,28 @@
 # RangerLite
 A pytorch implementation of the Lookahead optimizer with RAdam as inner optimizer.
 
+### Table of Contents
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Relation to other Implementations](#relation-to-other-implementations)
+- [Development](#development)
+- [References](#references)
+
+
 ## Installation
-The simplest way to install ranger-lite is to use pip:
+The simplest way to install RangerLite is to use pip:
 ```bash
 pip install git+https://github.com/ThorstenBuss/ranger-lite.git
 ```
 
-For development, first clone the repository and than install it as editable package including the development dependencies (consider using a virtual environment):
-```bash
-git clone https://github.com/ThorstenBuss/ranger-lite.git
-cd ranger-lite
-pip install -e ".[dev]"
-pre-commit install
+In your `requirements.txt` you can add:
 ```
+rangerlite @ git+https://github.com/ThorstenBuss/ranger-lite.git@v0.1.0
+```
+
+## Requirements
+RangerLite requires Python 3.10 or later and PyTorch 2.0 or later.
 
 ## Usage
 You can use RangerLite as a drop in pytorch optimizer:
@@ -50,6 +59,31 @@ The RangerLite optimizer is inspired by the original Ranger[1] optimizer, which 
 
 ### Why not use the original Lookahead implementation?
 The original Lookahead implementation[5] uses composition of optimizers, which can lead to unexpected behavior when setting hyper-parameters for individual parameter groups or frameworks like pytorch-lightning. Saving and loading the state dict is also not guaranteed to result in the same state leading to potential issues with checkpointing.
+
+## Development
+For development, first clone the repository and than install it as editable package including the development dependencies:
+```bash
+# clone the repository
+git clone https://github.com/ThorstenBuss/ranger-lite.git
+cd ranger-lite
+
+# create a virtual environment (you can also use a different tool like conda)
+python3 -m venv .venv
+source .venv/bin/activate
+
+# install the package and its development dependencies as editable package
+pip install -e ".[dev]"
+```
+
+This repository uses [pre-commit](https://pre-commit.com/) hooks to ensure consistent code style. To install the pre-commit hooks, run:
+```bash
+pre-commit install
+```
+
+The unit tests can be run with:
+```bash
+python -m unittest discover -s test -p "*_test.py" -v
+```
 
 ## References
 1. Ranger: [https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
