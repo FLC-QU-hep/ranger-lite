@@ -27,11 +27,12 @@ jobs:
           python -m pip install --upgrade pip
           pip3 install torch==${{ matrix.pytorch-version }} --index-url https://download.pytorch.org/whl/cpu
           python -m pip install .
+          pip install --group test
 
-      - name: Test with Unittest
+      - name: Test with PyTest
         run: |
           python -W "ignore:Failed to initialize NumPy:UserWarning" \
-            -m unittest discover -s test -p "*_test.py" -v
+            -m pytest -v
 
   pre-commit:
     runs-on: ubuntu-latest
