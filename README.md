@@ -67,12 +67,14 @@ For development, first clone the repository and than install it as editable pack
 git clone https://github.com/ThorstenBuss/ranger-lite.git
 cd ranger-lite
 
-# create a virtual environment (you can also use a different tool like conda)
+# create a virtual environment (you can also use a different tool)
 python3 -m venv .venv
 source .venv/bin/activate
 
 # install the package and its development dependencies as editable package
-pip install -e ".[dev]"
+pip install -e .
+pip install --group dev
+pip install --group test
 ```
 
 This repository uses [pre-commit](https://pre-commit.com/) hooks to ensure consistent code style. To install the pre-commit hooks, run:
@@ -82,7 +84,7 @@ pre-commit install
 
 The unit tests can be run with:
 ```bash
-python -m unittest discover -s test -p "*_test.py" -v
+pytest
 ```
 
 ## References
