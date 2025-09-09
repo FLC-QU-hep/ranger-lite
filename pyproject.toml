@@ -23,9 +23,9 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ThorstenBuss/ranger-lite"
-Repository = "https://github.com/ThorstenBuss/ranger-lite.git"
-"Bug Tracker" = "https://github.com/ThorstenBuss/ranger-lite/issues"
+Homepage = "https://github.com/FLC-QU-hep/ranger-lite"
+Repository = "https://github.com/FLC-QU-hep/ranger-lite.git"
+"Bug Tracker" = "https://github.com/FLC-QU-hep/ranger-lite/issues"
 
 [build-system]
 requires = ["setuptools"]
