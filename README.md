@@ -13,12 +13,12 @@ A pytorch implementation of the Lookahead optimizer with RAdam as inner optimize
 ## Installation
 The simplest way to install RangerLite is to use pip:
 ```bash
-pip install git+https://github.com/ThorstenBuss/ranger-lite.git
+pip install git+https://github.com/FLC-QU-hep/ranger-lite.git
 ```
 
 In your `requirements.txt` you can add:
 ```
-rangerlite @ git+https://github.com/ThorstenBuss/ranger-lite.git@v0.1.0
+rangerlite @ git+https://github.com/FLC-QU-hep/ranger-lite.git@v0.1.1
 ```
 
 ## Requirements
@@ -64,7 +64,7 @@ The original Lookahead implementation[5] uses composition of optimizers, which c
 For development, first clone the repository and than install it as editable package including the development dependencies:
 ```bash
 # clone the repository
-git clone https://github.com/ThorstenBuss/ranger-lite.git
+git clone https://github.com/FLC-QU-hep/ranger-lite.git
 cd ranger-lite
 
 # create a virtual environment (you can also use a different tool)
