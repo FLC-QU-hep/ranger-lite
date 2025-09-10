@@ -1,8 +1,6 @@
 [project]
 name = "rangerlite"
 version = "0.1.1"
-readme = "README.md"
-license = "MIT"
 description = "A pytorch implementation of the Lookahead optimizer with RAdam as inner optimizer"
 authors = [
     {name = "Thorsten Buss", email = "thorsten.buss@uni-hamburg.de"}
@@ -10,6 +8,18 @@ authors = [
 requires-python = ">=3.10,<4.0"
 dependencies = [
     "torch>=2.0.0,<3.0.0"
+]
+readme = "README.md"
+license = "MIT"
+keywords = ["machine-learning", "deep-learning", "pytorch", "optimizer", "lookahead", "radam"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
 
 [dependency-groups]
