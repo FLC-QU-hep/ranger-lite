@@ -1,5 +1,6 @@
 # RangerLite
-A pytorch implementation of the Lookahead optimizer with RAdam as inner optimizer.
+A pytorch implementation of the Lookahead optimizer [[1](#references)] with RAdam [[2](#references)] as inner optimizer. Tis combination is inspired by the Ranger optimizer [[3](#references)]. RangerLite is a lightweight, easy to use and type hinted alternative. The publication on PyPi allows easy installation via pip.
+
 
 ### Table of Contents
 - [Installation](#installation)
@@ -13,12 +14,7 @@ A pytorch implementation of the Lookahead optimizer with RAdam as inner optimize
 ## Installation
 The simplest way to install RangerLite is to use pip:
 ```bash
-pip install git+https://github.com/FLC-QU-hep/ranger-lite.git
-```
-
-In your `requirements.txt` you can add:
-```
-rangerlite @ git+https://github.com/FLC-QU-hep/ranger-lite.git@v0.1.1
+pip install rangerlite
 ```
 
 ## Requirements
@@ -55,10 +51,10 @@ for step in range(20):
 ```
 
 ## Relation to other Implementations
-The RangerLite optimizer is inspired by the original Ranger[1] optimizer, which combines RAdam[2], Lookahead[3] and gradient centralization[4]. RangerLite drops the gradient centralization and provides a lightweight alternative inheriting from PyTorch's RAdam implementation. It can easily be used and integrated into existing PyTorch workflows and provides type hinting for better developer experience.
+The RangerLite optimizer is inspired by the original Ranger[[3](#references)] optimizer, which combines RAdam[[2](#references)], Lookahead[[1](#references)] and gradient centralization[[4](#references)]. RangerLite drops the gradient centralization and provides a lightweight alternative inheriting from PyTorch's RAdam implementation. It can easily be used and integrated into existing PyTorch workflows and provides type hinting for better developer experience.
 
 ### Why not use the original Lookahead implementation?
-The original Lookahead implementation[5] uses composition of optimizers, which can lead to unexpected behavior when setting hyper-parameters for individual parameter groups or frameworks like pytorch-lightning. Saving and loading the state dict is also not guaranteed to result in the same state leading to potential issues with checkpointing.
+The original Lookahead implementation[[5](#references)] uses composition of optimizers, which can lead to unexpected behavior when setting hyper-parameters for individual parameter groups or frameworks like pytorch-lightning. Saving and loading the state dict is also not guaranteed to result in the same state leading to potential issues with checkpointing.
 
 ## Development
 For development, first clone the repository and than install it as editable package including the development dependencies:
@@ -88,8 +84,8 @@ pytest
 ```
 
 ## References
-1. Ranger: [https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
+1. Lookahead: [https://arxiv.org/abs/1907.08610](https://arxiv.org/abs/1907.08610v1)
 2. RAdam: [https://arxiv.org/abs/1908.03265](https://arxiv.org/abs/1908.03265)
-3. Lookahead: [https://arxiv.org/abs/1907.08610](https://arxiv.org/abs/1907.08610v1)
+3. Ranger: [https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer](https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer)
 4. Gradient Centralization: [https://arxiv.org/abs/2004.01461](https://arxiv.org/abs/2004.01461)
 5. Original Lookahead implementation: [https://github.com/michaelrzhang/lookahead](https://github.com/michaelrzhang/lookahead)
