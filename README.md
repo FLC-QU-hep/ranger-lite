@@ -1,5 +1,5 @@
 # RangerLite
-A pytorch implementation of the Lookahead optimizer [[1](#references)] with RAdam [[2](#references)] as inner optimizer. Tis combination is inspired by the Ranger optimizer [[3](#references)]. RangerLite is a lightweight, easy to use and type hinted alternative. The publication on PyPi allows easy installation via pip.
+A pytorch implementation of the Lookahead optimizer [[1](#references)] with RAdam [[2](#references)] as inner optimizer. This combination is inspired by the Ranger optimizer [[3](#references)]. RangerLite is a lightweight, easy to use and type hinted alternative. The publication on PyPi allows easy installation via pip.
 
 
 ### Table of Contents
