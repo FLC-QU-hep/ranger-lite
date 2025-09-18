@@ -1,6 +1,6 @@
 [project]
 name = "rangerlite"
-version = "1.0.0"
+version = "1.0.1"
 description = "A pytorch implementation of the Lookahead optimizer with RAdam as inner optimizer"
 authors = [
     {name = "Thorsten Buss", email = "thorsten.buss@uni-hamburg.de"}
@@ -33,9 +33,8 @@ test = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/FLC-QU-hep/ranger-lite"
 Repository = "https://github.com/FLC-QU-hep/ranger-lite.git"
-"Bug Tracker" = "https://github.com/FLC-QU-hep/ranger-lite/issues"
+Issues = "https://github.com/FLC-QU-hep/ranger-lite/issues"
 
 [build-system]
 requires = ["setuptools"]
