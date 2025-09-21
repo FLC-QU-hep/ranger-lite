@@ -7,6 +7,7 @@ on:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -44,6 +45,7 @@ jobs:
             -m pytest -v
 
   build:
+    name: Build Package
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -71,10 +73,11 @@ jobs:
           name: dist
           path: dist/
 
-  publish:
-    needs: [test, build]
+  pypi_release:
+    name: Publish to PyPI
+    needs: build
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' || (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v'))
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     permissions:
       id-token: write # Required for trusted publishing
     environment:
@@ -90,3 +93,30 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           packages-dir: dist/
+
+  github_release:
+    name: Create GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full history
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Create GitHub Release
+        id: create_release
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG_NAME#v}
+          gh release create $TAG_NAME dist/* --title "RangerLite $VERSION" --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}
