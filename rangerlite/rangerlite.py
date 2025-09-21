@@ -28,7 +28,7 @@ class RangerLite(RAdam):
         maximize: bool = False,
         capturable: bool = False,
     ) -> None:
-        defaults = {
+        defaults: dict[str, Any] = {
             "lr": lr,
             "betas": betas,
             "eps": eps,
