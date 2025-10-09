@@ -1,4 +1,11 @@
 # RangerLite
+[![PyPI](https://img.shields.io/pypi/v/rangerlite)](https://pypi.org/project/rangerlite/)
+[![Python Version](https://img.shields.io/pypi/pyversions/rangerlite)](https://www.python.org/)
+[![License](https://img.shields.io/pypi/l/rangerlite)](https://github.com/FLC-QU-hep/ranger-lite/blob/main/LICENSE)
+[![DOI](https://zenodo.org/badge/1047528323.svg)](https://doi.org/10.5281/zenodo.17302784)
+[![PyTorch Version](https://img.shields.io/badge/pytorch-2.0+-blue)](https://pytorch.org/)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/FLC-QU-hep/ranger-lite/publish.yml)](https://github.com/FLC-QU-hep/ranger-lite/actions/workflows/publish.yml)
+
 A pytorch implementation of the Lookahead optimizer [[1](#references)] with RAdam [[2](#references)] as inner optimizer. This combination is inspired by the Ranger optimizer [[3](#references)]. RangerLite is a lightweight, easy to use and type hinted alternative. The publication on PyPi allows easy installation via pip.
 
 
