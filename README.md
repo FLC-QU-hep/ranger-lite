@@ -2,7 +2,7 @@
 [![PyPI](https://img.shields.io/pypi/v/rangerlite)](https://pypi.org/project/rangerlite/)
 [![Python Version](https://img.shields.io/pypi/pyversions/rangerlite)](https://www.python.org/)
 [![License](https://img.shields.io/pypi/l/rangerlite)](https://github.com/FLC-QU-hep/ranger-lite/blob/main/LICENSE)
-[![DOI](https://zenodo.org/badge/1047528323.svg)](https://doi.org/10.5281/zenodo.17302784)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17302785.svg)](https://doi.org/10.5281/zenodo.17302785)
 [![PyTorch Version](https://img.shields.io/badge/pytorch-2.0+-blue)](https://pytorch.org/)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/FLC-QU-hep/ranger-lite/publish.yml)](https://github.com/FLC-QU-hep/ranger-lite/actions/workflows/publish.yml)
 
@@ -43,6 +43,8 @@ import torch
 from rangerlite import RangerLite
 
 x = torch.tensor(2.0, requires_grad=True)
+# learning rate too high for more complex problems,
+# but works for this simple example
 optimizer = RangerLite(
     params=[x],
     lr=2e-1,
