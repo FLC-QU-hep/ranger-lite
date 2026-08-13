@@ -5,3 +5,4 @@ wheels/
 *.egg-info/
 dist/
 uv.lock
+.vscode/
