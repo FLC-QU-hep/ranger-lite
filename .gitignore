@@ -6,3 +6,4 @@ wheels/
 dist/
 uv.lock
 .vscode/
+.coverage
