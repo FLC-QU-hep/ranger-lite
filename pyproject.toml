@@ -31,6 +31,7 @@ dev = [
 ]
 test = [
     "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
 ]
 
 [project.urls]
@@ -50,11 +51,21 @@ packages = ["rangerlite"]
 [tool.pytest.ini_options]
 testpaths = ["test"]
 python_files = ["*_test.py"]
-addopts = "-v"
+addopts = "-v --cov=rangerlite"
+
+[tool.coverage.run]
+branch = true
+source = ["rangerlite"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+]
 
 [tool.ruff]
 target-version = "py310"
 fix = true
+line-length = 88
 
 [tool.ruff.lint]
-extend-select = ["C4", "I", "SIM", "UP"]
+extend-select = ["C4", "I", "SIM", "UP", "ANN"]

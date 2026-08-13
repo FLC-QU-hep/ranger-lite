@@ -14,6 +14,14 @@ ParamsT = (
 
 
 class RangerLite(RAdam):
+    """Lookahead optimizer using RAdam as its inner optimizer, inspired by the Ranger optimizer.
+
+    References:
+        1. Lookahead: https://arxiv.org/abs/1907.08610v1
+        2. RAdam: https://arxiv.org/abs/1908.03265
+        3. Ranger: https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
+    """
+
     def __init__(
         self,
         params: ParamsT,
@@ -28,6 +36,16 @@ class RangerLite(RAdam):
         maximize: bool = False,
         capturable: bool = False,
     ) -> None:
+        if not isinstance(lookahead_steps, int) or lookahead_steps < 1:
+            raise ValueError(
+                f"Invalid lookahead_steps value: {lookahead_steps}. "
+                "Must be a positive integer."
+            )
+        if not isinstance(lookahead_alpha, float) or not (0.0 < lookahead_alpha < 1.0):
+            raise ValueError(
+                f"Invalid lookahead_alpha value: {lookahead_alpha}. "
+                "Must be a float between 0 and 1."
+            )
         defaults: dict[str, Any] = {
             "lr": lr,
             "betas": betas,
@@ -69,7 +87,7 @@ class RangerLite(RAdam):
                 if not isinstance(parameter, Tensor) or parameter.grad is None:
                     continue
                 state = self.state[parameter]
-                if int(state["step"].item() + 0.1) % group["lookahead_steps"] == 0:
+                if round(state["step"].item()) % group["lookahead_steps"] == 0:
                     parameter.data.mul_(group["lookahead_alpha"]).add_(
                         state["cached_params"],
                         alpha=1.0 - group["lookahead_alpha"],
